@@ -1,0 +1,3 @@
+[submodule "vim/pack/external/start/jellybeans.vim"]
+	path = vim/pack/external/start/jellybeans.vim
+	url = https://github.com/nanotech/jellybeans.vim
