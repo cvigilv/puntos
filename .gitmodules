@@ -7,3 +7,6 @@
 [submodule "vim/pack/external/start/quick-scope"]
 	path = vim/pack/external/start/quick-scope
 	url = https://github.com/unblevable/quick-scope
+[submodule "vim/pack/external/start/vimwiki"]
+	path = vim/pack/external/start/vimwiki
+	url = https://github.com/vimwiki/vimwiki.git
