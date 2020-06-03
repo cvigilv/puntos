@@ -31,6 +31,6 @@ set formatoptions-=cro         " Stop newline continuation of comments
 set clipboard=unnamedplus      " Copy paste between vim and everything else
 
 " Source everything else (it's cleaner this way)
-runtime! settings/*.vim
-runtime! mappings/*.vim
-runtime! after/*/*.vim
+runtime settings/vim-plug.vim
+runtime settings/color.vim
+runtime! settings/plugins/*.vim
