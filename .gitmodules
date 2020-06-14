@@ -13,3 +13,9 @@
 [submodule "vim/pack/external/start/julia-vim"]
 	path = vim/pack/external/start/julia-vim
 	url = https://github.com/JuliaEditorSupport/julia-vim.git
+[submodule "vim/plugged/Colorizer"]
+	path = vim/plugged/Colorizer
+	url = https://github.com/chrisbra/Colorizer
+[submodule "vim/plugged/YouCompleteMe"]
+	path = vim/plugged/YouCompleteMe
+	url = https://github.com/ycm-core/YouCompleteMe
