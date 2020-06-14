@@ -2,9 +2,10 @@ call plug#begin('~/.vim/plugged')
 	" Misc
     Plug 'kkoomen/vim-doge'
 	Plug 'itchyny/lightline.vim'
+	Plug 'chrisbra/Colorizer'
 	" Syntax
 	Plug 'plasticboy/vim-markdown'
-	Plug 'vimwiki/vimwiki'
+	"Plug 'vimwiki/vimwiki'
 	Plug 'JuliaEditorSupport/julia-vim'
 	" Tools
     Plug 'Yggdroot/indentLine'
@@ -12,6 +13,7 @@ call plug#begin('~/.vim/plugged')
 	Plug 'unblevable/quick-scope'
 	Plug 'junegunn/goyo.vim'
 	Plug 'junegunn/limelight.vim'
+	Plug 'ycm-core/YouCompleteMe'
 	" Colorscheme
 	Plug 'nanotech/jellybeans.vim'
 call plug#end()
