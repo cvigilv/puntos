@@ -22,7 +22,7 @@ set smartcase                  " Smart case sensitivity for easier searching
 set wildmenu                   " Command-line completion operates in enhanced way
 set wildmode=longest,list,full " Completition mode used to showcase options
 set scrolloff=5                " Leave some lines in the top and end of the file to have context
-set laststatus=2               " Enable the 'pretty' statusline of Vim
+set laststatus=2               " Enable the 'pretty' statusline
 set splitbelow                 " Horizontal splitting will be automatically placed on the bottom
 set splitright                 " Vertical splitting will be automatically placed on the right
 set conceallevel=0             " Don't hide formatting characters
@@ -33,4 +33,7 @@ set clipboard=unnamedplus      " Copy paste between vim and everything else
 " Source everything else (it's cleaner this way)
 runtime settings/vim-plug.vim
 runtime settings/color.vim
+runtime settings/netwr.vim
+runtime settings/mappings.vim
+runtime settings/autocmds.vim
 runtime! settings/plugins/*.vim
