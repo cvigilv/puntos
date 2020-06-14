@@ -12,7 +12,7 @@ else
 endif
 
 " jellybeans customization
-"let g:jellybeans_use_term_italics = 1		" Use italics
+let g:jellybeans_use_term_italics = 1		" Use italics
 if has('termguicolors') && &termguicolors	" CORRECT background color
 	let g:jellybeans_overrides = {
 	\    'background':	{
@@ -30,6 +30,8 @@ else
 	\}
 endif
 colorscheme jellybeans
+
+highlight Comment cterm=italic gui=italic
 
 " quick-scope colors
 highlight QuickScopePrimary guifg='#afff5f' gui=underline,bold ctermfg=155 cterm=underline,bold
