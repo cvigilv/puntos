@@ -19,8 +19,5 @@ call plug#begin('~/.local/share/neovim/plugged')
 	Plug 'nanotech/jellybeans.vim'
 	Plug 'cormacrelf/vim-colors-github'
 	" LSP
-	Plug 'nvim-lua/diagnostic-nvim'
-	Plug 'nvim-lua/completion-nvim'
-	Plug 'neovim/nvim-lsp'
-	Plug 'neovim/nvim-lspconfig'
+	Plug 'neoclide/coc.nvim', {'branch':'release'}
 call plug#end()

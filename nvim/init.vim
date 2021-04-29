@@ -31,7 +31,8 @@ set formatoptions-=cro         " Stop newline continuation of comments
 set clipboard=unnamedplus      " Copy paste between vim and everything else
 set mouse=a					   " Activate mouse
 set timeoutlen=500
-let g:vimsyn_embed='lPr'
+set signcolumn=number          " Replace number with sign
+let g:vimsyn_embed='lPr'       " Highlight embedded code
  
 " Source everything else (it's cleaner this way)
 runtime settings/vim-plug.vim
@@ -39,5 +40,4 @@ runtime settings/lsp.vim
 runtime settings/color.vim
 runtime settings/netwr.vim
 runtime settings/mappings.vim
-runtime settings/autocmds.vim
 runtime! settings/plugins/*.vim

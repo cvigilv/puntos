@@ -1,16 +1,24 @@
-autocmd BufEnter * lua require'completion'.on_attach()
+"" Blatantly stolen from recommended configuration for coc.nvim
+"" (Please refer to github page for more info).
 
-lua << EOF
-    local lspconfig = require'lspconfig'
-    local on_attach_vim = function()
-        require'completion'.on_attach()
-    end
-    lspconfig.julials.setup({
-		on_attach = on_attach_vim
-	})
-EOF
+" Use tab for trigger completion with characters ahead and navigate.
+" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
+" other plugin before putting this into your config.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
-let g:diagnostic_auto_popup_while_jump = 0
-let g:diagnostic_enable_virtual_text = 0
-let g:diagnostic_enable_underline = 0
-let g:completion_timer_cycle = 200 "default value is 80
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" Make <CR> auto-select the first completion item and notify coc.nvim to
+" format on enter, <cr> could be remapped by other vim plugin
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+" Highlight the symbol and its references when holding the cursor.
+autocmd CursorHold * silent call CocActionAsync('highlight')
