@@ -1,0 +1,25 @@
+#
+# ~/.bashrc
+#
+
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+# Activate vi mode
+set -o vi
+
+# Misc settings
+export PROMPT_DIRTRIM='2'		# Trim directory to the last 2 folders
+HISTSIZE= HISTSIZEFILE=			# Infinite history
+shopt -s histappend				# Append to history instead of overwriting
+shopt -s expand_aliases
+shopt -s checkwinsize
+complete -cf sudo
+
+# Environmental variables
+export PATH=$PATH:$HOME/.scripts
+export ZETTEL_DIR=$HOME/Dropbox
+export EDITOR=nvim
+
+[[ -f ~/.bash_prompt ]] && . ~/.bash_prompt
+[[ -f ~/.bash_aliases ]] && . ~/.bash_aliases

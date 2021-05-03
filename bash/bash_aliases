@@ -1,0 +1,23 @@
+#!/bin/bash
+
+alias ls='ls --color=auto'
+alias ll='ls -lh --color=auto'
+alias l.='ls -ad --color=auto .*'
+
+alias vim='nvim'
+alias v='nvim'
+
+alias t='tmux'
+alias ta='tmux a -t'
+alias tls='tmux ls'
+alias tnew='tmux new-session -s'
+
+alias ..='cd ..'
+alias :q='exit'
+
+alias dropbox='dropbox-cli'
+alias zettel='cd ~/Dropbox'
+alias pluto='julia -e "using Pluto; Pluto.run()"'
+
+alias grep='grep --colour=auto'
+alias fzf="fzf --preview 'bat --style=numbers --color=always {} | head -50' | xargs -r nvim"
