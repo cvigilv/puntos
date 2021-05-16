@@ -1,5 +1,4 @@
 " colorscheme setup
-set background=dark
 set cursorline
 
 " tmux color compatibility
@@ -10,29 +9,65 @@ if exists("$TMUX")
 else
 	set termguicolors
 endif
+	
+" Change colorscheme based in window/pane/tab focus
+function s:FocusedColorscheme()
+	colorscheme dracula
 
-" jellybeans customization
-let g:jellybeans_use_term_italics = 1		" Use italics
-if has('termguicolors') && &termguicolors	" CORRECT background color
-	let g:jellybeans_overrides = {
-	\    'background':	{
-	\		'ctermbg': 'none', 
-	\		'256ctermbg': 'none', 
-	\		'guibg': 'none' 
-	\		},
-	\}
-else
-	let g:jellybeans_overrides = {
-	\	'background': { 
-	\		'guibg': '1c1c1c',
-	\		'ctermbg': '234'
-	\		},
-	\}
-endif
-colorscheme jellybeans
+	" Some minor tweaks to the colorscheme
+	highlight Normal ctermbg=none guibg=none
+	highlight Comment cterm=italic gui=italic
+	highlight CursorLine cterm=none ctermbg=235 guibg='#2B2E3B'
+	
+	let g:lightline = {
+		\ 'colorscheme' : 'dracula',
+		\ 'active' : {
+		\	'left':[ ['mode', 'paste'],
+		\			 ['readonly','filename','modified', 'extension']],
+		\	'right':[['filetype'], [], [ 'LineInfo' ]]
+		\	},
+		\ 'component': {
+		\	'LineInfo': 'ℓ %l/%L - 𝚌 %c'
+		\	},
+		\ 'component_function': {
+		\	'filename': 'Lightline_filepath'
+		\	}
+		\ }
+	
+	call lightline#enable()
+endfunction
 
-highlight Comment cterm=italic gui=italic
-highlight CursorLine cterm=none ctermbg=235 guibg='#2c2c2c'
+function s:UnfocusedColorscheme()
+	colorscheme atlas
+
+	" Some minor tweaks to the colorscheme
+	highlight Normal ctermbg=none guibg=none
+	highlight Comment cterm=italic gui=italic
+	highlight CursorLine cterm=none ctermbg=235 guibg='#2B2E3B'
+
+	let g:lightline = {
+		\ 'colorscheme' : 'atlas',
+		\ 'active' : {
+		\	'left':[ ['mode', 'paste'],
+		\			 ['readonly','filename','modified', 'extension']],
+		\	'right':[['filetype'], [], [ 'LineInfo' ]]
+		\	},
+		\ 'component': {
+		\	'LineInfo': 'ℓ %l/%L - 𝚌 %c'
+		\	},
+		\ 'component_function': {
+		\	'filename': 'Lightline_filepath'
+		\	}
+		\ }
+
+	call lightline#enable()
+endfunction
+
+augroup ColorsByFocus
+	autocmd!
+	autocmd FocusGained,BufEnter * call s:FocusedColorscheme()
+	autocmd FocusLost,BufLeave * call s:UnfocusedColorscheme()
+augroup END
 
 " quick-scope colors
 highlight QuickScopePrimary guifg='#afff5f' gui=underline,bold ctermfg=155 cterm=underline,bold
