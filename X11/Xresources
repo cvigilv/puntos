@@ -1,0 +1,67 @@
+#define base00 #000000
+#define base01 #FF5555
+#define base02 #50FA7B
+#define base03 #F1FA8C
+#define base04 #BD93F9
+#define base05 #FF79C6
+#define base06 #8BE9FD
+#define base07 #BFBFBF
+#define base08 #4D4D4D
+#define base09 #FF6E67
+#define base0A #5AF78E
+#define base0B #F4F99D
+#define base0C #CAA9FA
+#define base0D #FF92D0
+#define base0E #9AEDFE
+#define base0F #E6E6E6
+
+! Dracula Xresources palette
+*.foreground:   #F8F8F2
+*.background:   #1b1d25
+*.cursorColor:  base07
+*.color0:       base00
+*.color1:       base01
+*.color2:       base02
+*.color3:       base03
+*.color4:       base04
+*.color5:       base05
+*.color6:       base06
+*.color7:       base07
+*.color8:       base08
+*.color9:       base09
+*.color10:      base0A
+*.color11:      base0B
+*.color12:      base0C
+*.color13:      base0D
+*.color14:      base0E
+*.color15:      base0F
+
+! Xterm configuration
+xterm*.foreground:  #F8F8F2
+xterm*.background:  #23252F
+xterm*cursorColor:  base0E
+xterm*color0:       base00
+xterm*color1:       base01
+xterm*color2:       base02
+xterm*color3:       base03
+xterm*color4:       base04
+xterm*color5:       base05
+xterm*color6:       base06
+xterm*color7:       base07
+xterm*color8:       base08
+xterm*color9:       base09
+xterm*color10:      base0A
+xterm*color11:      base0B
+xterm*color12:      base0C
+xterm*color13:      base0D
+xterm*color14:      base0E
+xterm*color15:      base0F
+
+xterm*Title: xterm
+xterm*BorderWidth: 10
+xterm*faceName: unifont:size=12
+xterm*ScrollBar: false
+xterm*utf8: 2
+xterm*cursorBlink: true
+xterm*ptyInitialErase: true
+xterm*backarrowKeyIsErase: true

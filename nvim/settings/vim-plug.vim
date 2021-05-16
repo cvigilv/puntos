@@ -16,8 +16,8 @@ call plug#begin('~/.local/share/neovim/plugged')
 	Plug 'JuliaEditorSupport/julia-vim'
 	Plug 'donRaphaco/neotex', { 'for': 'tex' }
 	" Colorscheme
-	Plug 'nanotech/jellybeans.vim'
-	Plug 'cormacrelf/vim-colors-github'
+	Plug 'dracula/vim', { 'name' : 'dracula' }
+	Plug 'huyvohcmc/atlas.vim'
 	" LSP
 	Plug 'neoclide/coc.nvim', {'branch':'release'}
 call plug#end()

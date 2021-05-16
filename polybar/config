@@ -1,0 +1,148 @@
+[colors]
+base00 = #000000
+base01 = #FF5555
+base02 = #50FA7B
+base03 = #F1FA8C
+base04 = #BD93F9
+base05 = #FF79C6
+base06 = #8BE9FD
+base07 = #BFBFBF
+base08 = #4D4D4D
+base09 = #FF6E67
+base0A = #5AF78E
+base0B = #F4F99D
+base0C = #CAA9FA
+base0D = #FF92D0
+base0E = #9AEDFE
+base0F = #E6E6E6
+foreground = #F8F8F2
+background = #1b1d25
+
+[bar/cvv]
+width               = 100%
+height              = 28
+fixed-center        = true
+background          = ${colors.background}
+foreground          = ${colors.foreground}
+padding-left        = 1
+padding-right       = 1
+module-margin-left  = 2
+module-margin-right = 1
+font-0              = unifont:size=12;2
+font-1              = unifont:size=12;2:weight=bold
+modules-left        = bspwm date
+modules-center      = 
+modules-right       = memory cpu battery pulseaudio
+tray-position       = right
+tray-padding        =1
+cursor-click        = pointer
+cursor-scroll       = ns-resize
+override-redirect   = false
+wm-restack          = bspwm
+
+[module/bspwm]
+type = internal/bspwm
+
+label-focused            = "%name%"
+label-focused-foreground = ${colors.background}
+label-focused-background = ${colors.base0D}
+label-focused-padding    = 1
+
+label-occupied           = %name%
+label-occupied-padding   = 1
+
+label-urgent             = !
+label-urgent-foreground  = ${colors.background}
+label-urgent-background  = ${colors.base01}
+label-urgent-padding     = 1
+
+label-empty              = 
+label-empty-foreground   = ${colors.foreground}
+label-empty-padding      = 0
+
+[module/cpu]
+type                     = internal/cpu
+interval                 = 0.5
+format-prefix            = "CPU %{F#94ea94}::%{F-} "
+format-prefix-foreground = ${colors.base0D}
+label                    = %percentage%%
+
+[module/memory]
+type                     = internal/memory
+interval                 = 0.5
+format-prefix            = "MEM %{F#94ea94}::%{F-} "
+format-prefix-foreground = ${colors.base0D}
+label                    = %percentage_used%%
+
+[module/date]
+type                     = internal/date
+interval                 = 1
+date                     = "%Y%{F#ea94ea}.%{F-}%m%{F#ea94ea}.%{F-}%d"
+time                     = %H%{F#ea94ea}:%{F-}%M%{F#ea94ea}:%{F-}%S
+label                    = %date% %{F#94ea94}-%{F-} %time%
+
+[module/pulseaudio]
+type                        = internal/pulseaudio
+
+format-volume-prefix			= "VOL %{F#94ea94}::%{F-} "
+format-volume-prefix-foreground	= ${colors.base0D}
+format-volume					= <label-volume> <bar-volume>
+label-volume					= %percentage%%
+label-volume-foreground     	= ${colors.foreground}
+
+format-muted-prefix				= "VOL %{F#94ea94}::%{F-} "
+format-muted-prefix-foreground	= ${colors.base0D}
+format-muted					= <label-muted> muted
+label-muted                 	= %percentage%%
+label-muted-foreground      	= ${colors.base01}
+
+bar-volume-width            = 6
+bar-volume-foreground-0     = ${colors.base0D}
+bar-volume-foreground-1     = ${colors.base0D}
+bar-volume-foreground-2     = ${colors.base0D}
+bar-volume-foreground-3     = ${colors.base0D}
+bar-volume-foreground-4     = ${colors.base0D}
+bar-volume-foreground-5     = ${colors.base0D}
+bar-volume-foreground-6     = ${colors.base0D}
+bar-volume-gradient         = false
+bar-volume-indicator        = |
+bar-volume-indicator-font   = 1
+bar-volume-fill             = =
+bar-volume-fill-font        = 1
+bar-volume-empty            = ─
+bar-volume-empty-font       = 1
+bar-volume-empty-foreground = ${colors.foreground}
+
+[module/battery]
+type                               = internal/battery
+battery                            = BAT0
+adapter                            = ADP1
+full-at                            = 99
+
+
+format-charging-prefix			   = "WALL %{F#94ea94}::%{F-} "
+format-charging-prefix-foreground  = ${colors.base0D}
+format-charging                    = <label-charging>
+format-charging-foreground         = ${colors.foreground}
+label-charging					   = %percentage%%
+
+format-discharging-prefix				= "BATT %{F#94ea94}::%{F-} "
+format-discharging-prefix-foreground	= ${colors.base0D}
+format-discharging                      = <label-discharging>
+label-discharging				        = %percentage%%
+format-discharging-foreground           = ${colors.foreground}
+
+format-full-prefix			  = "FULL %{F#94ea94}::%{F-} "
+format-full-prefix-foreground = ${colors.base0D}
+format-full                   = <label-full>
+format-full-foreground        = ${colors.foreground}
+label-full					  = %percentage%%
+
+[settings]
+screenchange-reload = true
+
+[global/wm]
+margin-top    = 0
+margin-bottom = 0
+
+; vim:ft=dosini
