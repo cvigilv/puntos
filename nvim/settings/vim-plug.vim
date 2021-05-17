@@ -6,8 +6,11 @@ call plug#begin('~/.local/share/neovim/plugged')
 	Plug 'unblevable/quick-scope'
 	Plug 'christoomey/vim-tmux-navigator'
 	Plug 'liuchengxu/vim-which-key'
+	Plug 'folke/which-key.nvim'
 	Plug 'junegunn/vim-easy-align'
 	Plug 'jpalardy/vim-slime'
+	Plug 'tpope/vim-surround'
+	Plug 'tpope/vim-commentary'
 	"Git
 	Plug 'airblade/vim-gitgutter'
 	" Syntax
