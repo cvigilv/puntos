@@ -19,14 +19,6 @@ require("which-key").setup({
 })
 
 require("which-key").register({
-	c = {':Commentary<CR>', 'Comment out'},
-	f = {
-		name = '+open',
-		w    = {'gf',       'Current window'  },
-		v    = {'<C-w>vgf', 'Vertical split'  },
-		h    = {'<C-w>f',   'Horizonal split' },
-		t    = {'<C-w>gf',  'New tab'         },
-		},
 	g = {
 		name = '+git',
 		g = {':GitGutterBufferToggle<CR>',         'Toggle GitGutter'  },
@@ -42,7 +34,18 @@ require("which-key").register({
 }, { prefix = "<leader>" })
 
 require("which-key").register({
+	c = {':Commentary<CR>', 'Comment out'},
+	f = {
+		name = '+Go to file under cursor',
+		w    = {'gf',       'Current window'  },
+		v    = {'<C-w>vgf', 'Vertical split'  },
+		h    = {'<C-w>f',   'Horizonal split' },
+		t    = {'<C-w>gf',  'New tab'         },
+		},
+}, { prefix = "g" })
+
+require("which-key").register({
 	a = {':EasyAlign<CR>',  'EasyAlign'   },
 	c = {':Commentary<CR>', 'Comment out' },
-}, { prefix = "<leader>", mode = "v" })
+}, { prefix = "g", mode = "v" })
 EOF
