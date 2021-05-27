@@ -22,5 +22,7 @@ call plug#begin('~/.local/share/neovim/plugged')
 	Plug 'dracula/vim', { 'name' : 'dracula' }
 	Plug 'huyvohcmc/atlas.vim'
 	" LSP
-	Plug 'neoclide/coc.nvim', {'branch':'release'}
+	"Plug 'neoclide/coc.nvim', {'branch':'release'}
+	Plug 'neovim/nvim-lspconfig'
+	Plug 'hrsh7th/nvim-compe'
 call plug#end()

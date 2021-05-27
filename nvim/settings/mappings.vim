@@ -1,4 +1,4 @@
-" Remove arrow navigation in NORMAL mode, 'cause... why not?
+" Remove arrow navigation in NORMAL mode, 'cause... why not
 nnoremap <Left>  :echoe "Use h"<CR>
 nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up>    :echoe "Use k"<CR>
@@ -24,7 +24,16 @@ require("which-key").register({
 		g = {':GitGutterBufferToggle<CR>',         'Toggle GitGutter'  },
 		h = {':GitGutterLineHighlightsToggle<CR>', 'Highlight changes' },
 		},
-	m = {'<Esc>/<++><Enter>"_c4l', 'Go to mark'},
+	l = {
+		name = '+lsp',
+		d = {'<cmd>lua vim.lsp.buf.definition()<CR>',      'Definition'},
+		i = {':LspInfo<CR>',                               'Server info'},
+		k = {'<cmd>lua vim.lsp.buf.hover()<CR>',           'Hover'},
+		n = {'<cmd>lua vim.lsp.buf.rename()<CR>',          'Rename'},
+		r = {'<cmd>lua vim.lsp.buf.references()<CR>',      'References'},
+		s = {'<cmd>lua vim.lsp.buf.document_symbol()<CR>', 'Symbols'},
+		},
+	-- m = {'<Esc>/<++><Enter>"_c4l', 'Go to mark'},
 	w = {
 		name = '+window',
 		b    = {':vertical resize +5<CR>', 'Bigger split'  },
@@ -34,6 +43,7 @@ require("which-key").register({
 }, { prefix = "<leader>" })
 
 require("which-key").register({
+	a = {':EasyAlign<CR>',  'EasyAlign'   },
 	c = {':Commentary<CR>', 'Comment out'},
 	f = {
 		name = '+Go to file under cursor',
