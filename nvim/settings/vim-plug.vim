@@ -24,5 +24,5 @@ call plug#begin('~/.local/share/neovim/plugged')
 	" LSP
 	"Plug 'neoclide/coc.nvim', {'branch':'release'}
 	Plug 'neovim/nvim-lspconfig'
-	Plug 'hrsh7th/nvim-compe'
+	Plug 'nvim-lua/completion-nvim'
 call plug#end()

@@ -8,6 +8,12 @@ nnoremap <Down>  :echoe "Use j"<CR>
 nnoremap H gT
 nnoremap L gt
 
+" Autocomplete
+"" Use <Tab> and <S-Tab> to navigate through popup menu
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+nnoremap <silent> <leader>H :lua vim.lsp.buf.hover()<CR>
+
 " WhichKey
 lua << EOF
 require("which-key").setup({
