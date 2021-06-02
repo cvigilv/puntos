@@ -23,4 +23,7 @@ tags
 # Persistent undo
 [._]*.un~
 
+# Julia precompiled binaries
+*.so
+
 # End of https://www.toptal.com/developers/gitignore/api/vim
