@@ -28,3 +28,18 @@ require'lspconfig'.julials.setup{
 	end
 }
 EOF
+let g:diagnostic_auto_popup_while_jump  = 0
+let g:diagnostic_enable_virtual_text    = 0
+let g:diagnostic_enable_underline       = 0
+let g:completion_timer_cycle            = 200
+let g:completion_trigger_on_delete      = 1
+let g:completion_trigger_keyword_length = 2
+let g:completion_matching_smart_case    = 1
+let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy', 'all']
+let g:completion_enable_auto_hover      = 0
+
+ " Set completeopt to have a better completion experience
+set completeopt=menuone,noinsert,noselect
+
+" Avoid showing message extra message when using completion
+set shortmess+=c
