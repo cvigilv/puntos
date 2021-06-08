@@ -31,7 +31,7 @@ set formatoptions-=cro         " Stop newline continuation of comments
 set clipboard=unnamedplus      " Copy paste between vim and everything else
 set mouse=a					   " Activate mouse
 set timeoutlen=100
-set signcolumn=number          " Replace number with sign
+set signcolumn=auto            " Automatically add the sign column if necesary
 let g:vimsyn_embed='lPr'       " Highlight embedded code
 let g:netrw_dirhistmax=0       " No Netrw history
  
