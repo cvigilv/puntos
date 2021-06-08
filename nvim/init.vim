@@ -38,7 +38,6 @@ let g:netrw_dirhistmax=0       " No Netrw history
 " Source everything else (it's cleaner this way)
 runtime settings/vim-plug.vim
 runtime settings/lsp.vim
-runtime settings/treesitter.vim
 runtime settings/color.vim
 runtime settings/netwr.vim
 runtime settings/mappings.vim
