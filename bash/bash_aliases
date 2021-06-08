@@ -1,8 +1,9 @@
 #!/bin/bash
 
-alias ls='ls --color=auto'
-alias ll='ls -lh --color=auto'
-alias l.='ls -ad --color=auto .*'
+alias ls='exa --group-directories-first'
+alias ll='exa -lh --group-directories-first'
+alias l.='exa -ad .* --group-directories-first'
+alias ll.='exa -lhad .* --group-directories-first'
 
 alias vim='nvim'
 alias v='nvim'
