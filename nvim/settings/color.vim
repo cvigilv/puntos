@@ -1,72 +1,47 @@
 " colorscheme setup
 set cursorline
+set termguicolors
 
 " tmux color compatibility
 if exists("$TMUX")
-	set termguicolors
 	let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 	let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-else
-	set termguicolors
 endif
 	
 " Change colorscheme based in window/pane/tab focus
-function s:FocusedColorscheme()
-	colorscheme dracula
-
-	" Some minor tweaks to the colorscheme
-	highlight Normal ctermbg=none guibg=none
-	highlight Comment cterm=italic gui=italic
-	highlight CursorLine cterm=none ctermbg=235 guibg='#2B2E3B'
+function s:colores(colorscheme_name)
+	execute 'colorscheme '.a:colorscheme_name
 	
+	highlight Normal     ctermbg=none    guibg=none
+	highlight Comment    cterm=italic    gui=italic
+	highlight CursorLine ctermbg=236     guibg='#2B2E3B'
+	highlight link       GitGutterAdd    DiffAdd
+	highlight link       GitGutterChange DiffChange
+	highlight link       GitGutterDelete DiffDelete
+
 	let g:lightline = {
-		\ 'colorscheme' : 'dracula',
+		\ 'colorscheme' : a:colorscheme_name,
 		\ 'active' : {
 		\	'left':[ ['mode', 'paste'],
-		\			 ['readonly','filename','modified', 'extension']],
+		\			 ['gitbranch','readonly','filename','modified', 'extension']],
 		\	'right':[['filetype'], [], [ 'LineInfo' ]]
 		\	},
 		\ 'component': {
-		\	'LineInfo': 'ℓ %l/%L - 𝚌 %c'
+		\	'LineInfo': "ℓ %l/%L - c %c/%{strwidth(getline('.'))}"
 		\	},
 		\ 'component_function': {
-		\	'filename': 'Lightline_filepath'
+		\	'filename': 'Lightline_filepath',
+		\   'gitbranch': 'FugitiveHead'
 		\	}
 		\ }
 	
-	call lightline#enable()
-endfunction
-
-function s:UnfocusedColorscheme()
-	colorscheme atlas
-
-	" Some minor tweaks to the colorscheme
-	highlight Normal ctermbg=none guibg=none
-	highlight Comment cterm=italic gui=italic
-	highlight CursorLine cterm=none ctermbg=235 guibg='#2B2E3B'
-
-	let g:lightline = {
-		\ 'colorscheme' : 'atlas',
-		\ 'active' : {
-		\	'left':[ ['mode', 'paste'],
-		\			 ['readonly','filename','modified', 'extension']],
-		\	'right':[['filetype'], [], [ 'LineInfo' ]]
-		\	},
-		\ 'component': {
-		\	'LineInfo': 'ℓ %l/%L - 𝚌 %c'
-		\	},
-		\ 'component_function': {
-		\	'filename': 'Lightline_filepath'
-		\	}
-		\ }
-
 	call lightline#enable()
 endfunction
 
 augroup ColorsByFocus
 	autocmd!
-	autocmd FocusGained,BufEnter * call s:FocusedColorscheme()
-	autocmd FocusLost,BufLeave * call s:UnfocusedColorscheme()
+	autocmd FocusGained,BufEnter * call s:colores("dracula")
+	autocmd FocusLost,BufLeave   * call s:colores("atlas")
 augroup END
 
 " quick-scope colors
