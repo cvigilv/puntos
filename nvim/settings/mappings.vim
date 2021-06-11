@@ -32,12 +32,12 @@ require("which-key").register({
 		},
 	l = {
 		name = '+lsp',
-		d = {'<cmd>lua vim.lsp.buf.definition()<CR>',      'Definition'},
-		i = {':LspInfo<CR>',                               'Server info'},
-		k = {'<cmd>lua vim.lsp.buf.hover()<CR>',           'Hover'},
-		n = {'<cmd>lua vim.lsp.buf.rename()<CR>',          'Rename'},
-		r = {'<cmd>lua vim.lsp.buf.references()<CR>',      'References'},
-		s = {'<cmd>lua vim.lsp.buf.document_symbol()<CR>', 'Symbols'},
+		d = {'<cmd>lua vim.lsp.buf.definition()<CR>',      'Definition'  },
+		i = {':LspInfo<CR>',                               'Server info' },
+		k = {'<cmd>lua vim.lsp.buf.hover()<CR>',           'Hover'       },
+		n = {'<cmd>lua vim.lsp.buf.rename()<CR>',          'Rename'      },
+		r = {'<cmd>lua vim.lsp.buf.references()<CR>',      'References'  },
+		s = {'<cmd>lua vim.lsp.buf.document_symbol()<CR>', 'Symbols'     },
 		},
 	-- m = {'<Esc>/<++><Enter>"_c4l', 'Go to mark'},
 	w = {
@@ -45,6 +45,13 @@ require("which-key").register({
 		b    = {':vertical resize +5<CR>', 'Bigger split'  },
 		s    = {':vertical resize -5<CR>', 'Smaller split' },
 		e    = {'<C-w>=',                  'Equal split'   },
+		},
+	f = {
+		name = '+telescope',
+		f    = {'<cmd>Telescope find_files<cr>', 'Find files' },
+		g    = {'<cmd>Telescope live_grep<cr>',  'Grep'       },
+		b    = {'<cmd>Telescope buffers<cr>',    'Buffers'    },
+		h    = {'<cmd>Telescope help_tags<cr>',  'Help tags'  },
 		},
 }, { prefix = "<leader>" })
 

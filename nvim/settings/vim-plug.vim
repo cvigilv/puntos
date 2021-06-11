@@ -1,18 +1,24 @@
 call plug#begin('~/.local/share/neovim/plugged')
 	" Misc
 	Plug 'mhinz/vim-startify'
-	" Ease-of-use
-	Plug 'itchyny/lightline.vim'
-	Plug 'unblevable/quick-scope'
-	Plug 'christoomey/vim-tmux-navigator'
+	" Tools
 	Plug 'liuchengxu/vim-which-key'
 	Plug 'folke/which-key.nvim'
-	Plug 'junegunn/vim-easy-align'
+	Plug 'unblevable/quick-scope'
+	Plug 'itchyny/lightline.vim'
 	Plug 'jpalardy/vim-slime'
+	" Ease-of-use
+	Plug 'christoomey/vim-tmux-navigator'
+	Plug 'junegunn/vim-easy-align'
 	Plug 'tpope/vim-surround'
 	Plug 'tpope/vim-commentary'
+	" Telescope
+	Plug 'nvim-lua/popup.nvim'
+	Plug 'nvim-lua/plenary.nvim'
+	Plug 'nvim-telescope/telescope.nvim'
 	"Git
 	Plug 'airblade/vim-gitgutter'
+	Plug 'tpope/vim-fugitive'
 	" Syntax
 	Plug 'vim-pandoc/vim-pandoc'
 	Plug 'vim-pandoc/vim-pandoc-syntax'
@@ -22,7 +28,7 @@ call plug#begin('~/.local/share/neovim/plugged')
 	Plug 'dracula/vim', { 'name' : 'dracula' }
 	Plug 'huyvohcmc/atlas.vim'
 	" LSP
-	"Plug 'neoclide/coc.nvim', {'branch':'release'}
+	Plug 'kabouzeid/nvim-lspinstall'
 	Plug 'neovim/nvim-lspconfig'
 	Plug 'nvim-lua/completion-nvim'
 call plug#end()
