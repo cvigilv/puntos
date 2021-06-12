@@ -23,7 +23,7 @@ call plug#begin('~/.local/share/neovim/plugged')
 	Plug 'vim-pandoc/vim-pandoc'
 	Plug 'vim-pandoc/vim-pandoc-syntax'
 	Plug 'JuliaEditorSupport/julia-vim'
-	Plug 'donRaphaco/neotex', { 'for': 'tex' }
+	Plug 'lervag/vimtex'
 	" Colorscheme
 	Plug 'dracula/vim', { 'name' : 'dracula' }
 	Plug 'huyvohcmc/atlas.vim'
