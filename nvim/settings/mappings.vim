@@ -9,10 +9,13 @@ nnoremap H gT
 nnoremap L gt
 
 " Autocomplete
-"" Use <Tab> and <S-Tab> to navigate through popup menu
-inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-nnoremap <silent> <leader>H :lua vim.lsp.buf.hover()<CR>
+"" Use <C-j>/<Down>/<Tab> and <C-k>/<Up>/<S-Tab> to navigate through popup menu
+inoremap <expr><C-j>   pumvisible() ? "\<C-n>" : "\<C-j>"
+inoremap <expr><C-k>   pumvisible() ? "\<C-p>" : "\<C-k>"
+inoremap <expr><Down>  pumvisible() ? "\<C-n>" : "\<Down>"
+inoremap <expr><Up>    pumvisible() ? "\<C-p>" : "\<Up>"
+inoremap <expr><Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr><S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 " WhichKey
 lua << EOF
