@@ -12,6 +12,7 @@ call plug#begin('~/.local/share/neovim/plugged')
 	Plug 'junegunn/vim-easy-align'
 	Plug 'tpope/vim-surround'
 	Plug 'tpope/vim-commentary'
+	Plug 'sirver/ultisnips'
 	" Telescope
 	Plug 'nvim-lua/popup.nvim'
 	Plug 'nvim-lua/plenary.nvim'
@@ -31,4 +32,5 @@ call plug#begin('~/.local/share/neovim/plugged')
 	Plug 'kabouzeid/nvim-lspinstall'
 	Plug 'neovim/nvim-lspconfig'
 	Plug 'nvim-lua/completion-nvim'
+	" Plug 'hrsh7th/nvim-compe'
 call plug#end()
