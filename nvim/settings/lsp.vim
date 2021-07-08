@@ -1,5 +1,15 @@
 " Language server
 lua << EOF
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+capabilities.textDocument.completion.completionItem.resolveSupport = {
+  properties = {
+    'documentation',
+    'detail',
+    'additionalTextEdits',
+  }
+}
+
 require'lspconfig'.julials.setup{
 	on_new_config = function(new_config,new_root_dir)
 	server_path = "/home/cvigilv/.julia/packages/LanguageServer/zWmew/src/"
@@ -25,21 +35,10 @@ require'lspconfig'.julials.setup{
 	};
 	new_config.cmd = cmd
 	on_attach = require'completion'.on_attach()
+	capabilities = capabilities
 	end
 }
 EOF
 let g:diagnostic_auto_popup_while_jump  = 0
 let g:diagnostic_enable_virtual_text    = 0
 let g:diagnostic_enable_underline       = 0
-let g:completion_timer_cycle            = 200
-let g:completion_trigger_on_delete      = 1
-let g:completion_trigger_keyword_length = 2
-let g:completion_matching_smart_case    = 1
-let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy', 'all']
-let g:completion_enable_auto_hover      = 0
-
- " Set completeopt to have a better completion experience
-set completeopt=menuone,noinsert,noselect
-
-" Avoid showing message extra message when using completion
-set shortmess+=c
