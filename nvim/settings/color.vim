@@ -38,11 +38,13 @@ function s:colores(colorscheme_name)
 	call lightline#enable()
 endfunction
 
-augroup ColorsByFocus
-	autocmd!
-	autocmd FocusGained,BufEnter * call s:colores("dracula")
-	autocmd FocusLost,BufLeave   * call s:colores("atlas")
-augroup END
+call s:colores("dracula")
+
+" augroup ColorsByFocus
+" 	autocmd!
+" 	autocmd FocusGained,BufEnter * call s:colores("dracula")
+" 	autocmd FocusLost,BufLeave   * call s:colores("atlas")
+" augroup END
 
 " quick-scope colors
 highlight QuickScopePrimary guifg='#afff5f' gui=underline,bold ctermfg=155 cterm=underline,bold
