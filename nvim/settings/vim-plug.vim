@@ -10,7 +10,6 @@ call plug#begin('~/.local/share/neovim/plugged')
 	" Ease-of-use
 	Plug 'christoomey/vim-tmux-navigator'
 	Plug 'junegunn/vim-easy-align'
-	Plug 'tpope/vim-surround'
 	Plug 'tpope/vim-commentary'
 	Plug 'sirver/ultisnips'
 	" Telescope
@@ -31,6 +30,5 @@ call plug#begin('~/.local/share/neovim/plugged')
 	" LSP
 	Plug 'kabouzeid/nvim-lspinstall'
 	Plug 'neovim/nvim-lspconfig'
-	Plug 'nvim-lua/completion-nvim'
-	" Plug 'hrsh7th/nvim-compe'
+	Plug 'hrsh7th/nvim-compe'
 call plug#end()

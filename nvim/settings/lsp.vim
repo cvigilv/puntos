@@ -1,5 +1,15 @@
 " Language server
 lua << EOF
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+capabilities.textDocument.completion.completionItem.resolveSupport = {
+  properties = {
+    'documentation',
+    'detail',
+    'additionalTextEdits',
+  }
+}
+
 require'lspconfig'.julials.setup{
 	on_new_config = function(new_config,new_root_dir)
 	server_path = "/home/cvigilv/.julia/packages/LanguageServer/zWmew/src/"
@@ -25,6 +35,7 @@ require'lspconfig'.julials.setup{
 	};
 	new_config.cmd = cmd
 	on_attach = require'completion'.on_attach()
+	capabilities = capabilities
 	end
 }
 EOF
