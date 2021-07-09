@@ -20,7 +20,7 @@ function s:colores(colorscheme_name)
 	highlight link       GitGutterDelete DiffDelete
 
 	let g:lightline = {
-		\ 'colorscheme' : a:colorscheme_name,
+		\ 'colorscheme' : "one",
 		\ 'active' : {
 		\	'left':[ ['mode', 'paste'],
 		\			 ['gitbranch','readonly','filename','modified', 'extension']],
@@ -38,7 +38,7 @@ function s:colores(colorscheme_name)
 	call lightline#enable()
 endfunction
 
-call s:colores("dracula")
+call s:colores("xresources")
 
 " augroup ColorsByFocus
 " 	autocmd!
