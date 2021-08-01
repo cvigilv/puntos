@@ -29,9 +29,9 @@ padding-right       = 1
 module-margin-left  = 2
 module-margin-right = 1
 font-0              = unifont:size=12;2
-font-1              = unifont:size=12;2:weight=bold
+font-1              = unifont:size=12:weight=bold;2
 modules-left        = bspwm date
-modules-center      = 
+modules-center      = pomo
 modules-right       = memory cpu battery pulseaudio
 tray-position       = right
 tray-padding        = 1
@@ -52,9 +52,9 @@ padding-right       = 1
 module-margin-left  = 2
 module-margin-right = 1
 font-0              = unifont:size=12;2
-font-1              = unifont:size=12;2:weight=bold
+font-1              = unifont:size=12:weight=bold;2
 modules-left        = bspwm date
-modules-center      = 
+modules-center      = pomo
 modules-right       = memory cpu battery pulseaudio
 tray-position       = right
 tray-padding        = 1
@@ -104,6 +104,12 @@ interval                 = 1
 date                     = "%Y%{F#ea94ea}.%{F-}%m%{F#ea94ea}.%{F-}%d"
 time                     = %H%{F#ea94ea}:%{F-}%M%{F#ea94ea}:%{F-}%S
 label                    = %date% %{F#94ea94}-%{F-} %time%
+
+[module/pomo]
+type = custom/script
+exec = /home/cvigilv/documents/pomo/pomo
+interval = 1
+
 
 [module/pulseaudio]
 type                        = internal/pulseaudio
