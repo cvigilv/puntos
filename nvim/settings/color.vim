@@ -9,10 +9,8 @@ if exists("$TMUX")
 endif
 	
 " Change colorscheme based in window/pane/tab focus
-function s:colores(colorscheme_name)
-	execute 'colorscheme '.a:colorscheme_name
-	
-	highlight Normal     ctermbg=none    guibg=none
+function s:colores()
+	highlight Normal     ctermfg=white   guifg='#F1F1F1'
 	highlight Comment    cterm=italic    gui=italic
 	highlight CursorLine ctermbg=236     guibg='#2B2E3B'
 	highlight link       GitGutterAdd    DiffAdd
@@ -20,14 +18,14 @@ function s:colores(colorscheme_name)
 	highlight link       GitGutterDelete DiffDelete
 
 	let g:lightline = {
-		\ 'colorscheme' : "one",
+		\ 'colorscheme' : "tokyonight",
 		\ 'active' : {
 		\	'left':[ ['mode', 'paste'],
 		\			 ['gitbranch','readonly','filename','modified', 'extension']],
-		\	'right':[['filetype'], [], [ 'LineInfo' ]]
+		\	'right':[['filetype'], ['LineInfo' ]]
 		\	},
 		\ 'component': {
-		\	'LineInfo': "ℓ %l/%L - c %c/%{strwidth(getline('.'))}"
+		\	'LineInfo': "ℓ %l/%L · ⅽ %c/%{strwidth(getline('.'))}"
 		\	},
 		\ 'component_function': {
 		\	'filename': 'Lightline_filepath',
@@ -38,13 +36,12 @@ function s:colores(colorscheme_name)
 	call lightline#enable()
 endfunction
 
-call s:colores("xresources")
+augroup ColorsByFocus
+	autocmd!
+	autocmd ColorScheme * call s:colores()
+augroup END
 
-" augroup ColorsByFocus
-" 	autocmd!
-" 	autocmd FocusGained,BufEnter * call s:colores("dracula")
-" 	autocmd FocusLost,BufLeave   * call s:colores("atlas")
-" augroup END
+colorscheme tokyonight
 
 " quick-scope colors
 highlight QuickScopePrimary guifg='#afff5f' gui=underline,bold ctermfg=155 cterm=underline,bold

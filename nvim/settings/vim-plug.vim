@@ -27,6 +27,10 @@ call plug#begin('~/.local/share/neovim/plugged')
 	Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 	" Colorscheme
 	Plug 'nekonako/xresources-nvim'
+	Plug 'folke/tokyonight.nvim'
+	Plug 'shaunsingh/nord.nvim'
+	Plug 'dracula/vim', { 'as': 'dracula' }
+	Plug 'romainl/vim-bruin'
 	" LSP
 	Plug 'kabouzeid/nvim-lspinstall'
 	Plug 'neovim/nvim-lspconfig'
