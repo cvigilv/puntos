@@ -1,24 +1,28 @@
 #!/bin/bash
 
+# exa
 alias ls='exa --group-directories-first'
 alias ll='exa -lh --group-directories-first'
 alias l.='exa -ad .* --group-directories-first'
 alias ll.='exa -lhad .* --group-directories-first'
 
-alias vim='nvim'
+# n/vim
 alias v='nvim'
+alias vi='nvim'
+alias vim='nvim'
 
-alias t='tmux'
-alias ta='tmux a -t'
-alias tls='tmux ls'
-alias tnew='tmux new-session -s'
+# git
+alias gs='git status'
+alias ga='git add'
+alias gc='git commit'
+alias gd='git diff'
+alias gr='git restore'
+alias gb='git branch'
+alias go='git checkout'
+alias gl='git logline'
 
+# misc
 alias ..='cd ..'
 alias :q='exit'
-
-alias dropbox='dropbox-cli'
-alias zettel='cd ~/Dropbox'
 alias pluto='julia -e "using Pluto; Pluto.run()"'
-
 alias grep='grep --colour=auto'
-alias fzf="fzf --preview 'bat --style=numbers --color=always {} | head -50' | xargs -r nvim"
