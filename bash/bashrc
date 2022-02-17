@@ -17,9 +17,15 @@ shopt -s checkwinsize
 complete -cf sudo
 
 # Environmental variables
-export PATH=$PATH:$HOME/.scripts
-export ZETTEL_DIR=$HOME/Dropbox
+export SHELL=/bin/bash
 export EDITOR=nvim
+export PATH=$PATH:$HOME/documents/git/tools
+export GITDIR=$HOME/documents/git/
+export ZETTELDIR=$HOME/documents/zk
 
-[[ -f ~/.bash_prompt ]] && . ~/.bash_prompt
 [[ -f ~/.bash_aliases ]] && . ~/.bash_aliases
+[[ -f ~/.polyglot.sh ]] && . ~/.polyglot.sh
+[[ -f ~/.fzf.sh ]] && . ~/.fzf.sh
+
+# Created by `pipx` on 2022-02-16 18:49:08
+export PATH="$PATH:/home/carlos/.local/bin"
