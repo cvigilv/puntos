@@ -21,6 +21,7 @@ xterm*color15:    #C0CAF5
 ! uxterm settings
 xterm*Title:               xterm
 xterm*BorderWidth:         10
+xterm*vt100.scaleHeight:   1.2
 xterm*faceName:            unifont:size=12
 xterm*ScrollBar:           false
 xterm*utf8:                2
