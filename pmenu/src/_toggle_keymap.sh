@@ -1,9 +1,9 @@
 #!/bin/bash
 if [[ $(setxkbmap -query | grep layout | cut -d' ' -f6) == "us" ]];
 then
-    setxkbmap latam
+    setxkbmap -option ctrl:nocaps latam
 else
-    setxkbmap us
+    setxkbmap -option ctrl:nocaps us
 fi && notify-send \
     -i /home/carlos/documents/git/puntos/pmenu/src/keyboard.png \
     "Keymap" \
