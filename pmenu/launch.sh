@@ -7,8 +7,8 @@ IMG:/home/carlos/documents/git/puntos/pmenu/src/work.png	work
 	IMG:/home/carlos/documents/git/puntos/pmenu/src/bookmarks.png	Viewer	okular
 	IMG:/home/carlos/documents/git/puntos/pmenu/src/todo.png	ToDo	uxterm -e nvim ~/documents/zk/refile.org
 IMG:/home/carlos/documents/git/puntos/pmenu//src/play.png	play
-	IMG:/home/carlos/documents/git/puntos/pmenu/src/steam.png	Steam	steam
 	IMG:/home/carlos/documents/git/puntos/pmenu/src/spotify.png	Spotify	spotify
+	IMG:/home/carlos/documents/git/puntos/pmenu/src/steam.png	Steam	steam
 	IMG:/home/carlos/documents/git/puntos/pmenu/src/discord.png	WhatsApp	whatsapp-nativefier
 IMG:/home/carlos/documents/git/puntos/pmenu/src/settings.png	Settings
 	IMG:/home/carlos/documents/git/puntos/pmenu/src/keyboard.png	Keymap	/home/carlos/documents/git/puntos/pmenu/src/_toggle_keymap.sh
