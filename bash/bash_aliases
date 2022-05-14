@@ -31,6 +31,7 @@ alias :q='exit'
 alias pluto='julia -e "using Pluto; Pluto.run()"'
 alias grep='grep --colour=auto'
 alias tmux='tmux -2'
+alias ?='cht.sh'
 
 # functions / tools
 function tab () {
