@@ -20,6 +20,7 @@ alias gr='git restore'
 alias gb='git branch'
 alias go='git checkout'
 alias gl='git logline'
+alias groot='git root'
 
 # misc
 alias ..='cd ..'
