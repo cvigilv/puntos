@@ -31,3 +31,8 @@ alias :q='exit'
 alias pluto='julia -e "using Pluto; Pluto.run()"'
 alias grep='grep --colour=auto'
 alias tmux='tmux -2'
+
+# functions / tools
+function tab () {
+	column -s, -t < "$1" | less -#2 -N -S
+}
