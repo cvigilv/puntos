@@ -2,9 +2,9 @@
 
 # exa
 alias ls='exa --group-directories-first'
-alias ll='exa -lh --group-directories-first'
+alias ll='exa -lh --git --group-directories-first'
 alias l.='exa -ad .* --group-directories-first'
-alias ll.='exa -lhad .* --group-directories-first'
+alias ll.='exa -lhad --git --group-directories-first .*'
 
 # n/vim
 alias v='nvim'
