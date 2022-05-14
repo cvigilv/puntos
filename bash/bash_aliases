@@ -22,6 +22,9 @@ alias go='git checkout'
 alias gl='git logline'
 alias groot='git root'
 
+# python
+alias activate='source $HOME/.venv/$(ls -1 $HOME/.venv | fzf --height 1 --prompt "Select Python venv :: ")/bin/activate'
+
 # misc
 alias ..='cd ..'
 alias :q='exit'
