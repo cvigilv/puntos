@@ -14,6 +14,6 @@ case "$1" in
 "C-c")  while read file; do xclip -selection clipboard -target image/png "$file"; done ;;
 "C-e")  while read file; do gimp "$file" & done ;;
 "C-E")  while read file; do rawtherapee "$file" & done ;;
-"C-r")  rotate 270 ;;
+"C-r")  rotate 90 ;;
 "C-R")  rotate 180 ;;
 esac
