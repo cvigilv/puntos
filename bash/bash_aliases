@@ -37,3 +37,7 @@ alias ?='cht.sh'
 function tab () {
 	column -s, -t < "$1" | less -#2 -N -S
 }
+
+function getPDB () {
+	wget "https://files.rcsb.org/download/${1^^}.pdb"
+}
