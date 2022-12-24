@@ -41,3 +41,6 @@ function tab () {
 function getPDB () {
 	wget "https://files.rcsb.org/download/${1^^}.pdb"
 }
+function getCIF () {
+	wget "https://files.rcsb.org/download/${1^^}.cif"
+}
