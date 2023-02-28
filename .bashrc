@@ -18,24 +18,21 @@ complete -cf sudo
 # Environmental variables
 export SHELL=/bin/bash
 export EDITOR=nvim
-export PATH=$PATH:$HOME/documents/git/tools
-export GITDIR=$HOME/documents/git
-export ZETTELDIR=$HOME/documents/zk
+export GITDIR=$HOME/git
+export ZETTELDIR=$HOME/zk
+export PATH=$PATH:$GITDIR/tools
 
-[[ -f ~/.bash_aliases ]] && . "$HOME/.bash_aliases"
-[[ -f ~/.polyglot.sh ]] && . "$HOME/.polyglot.sh"
-[[ -f ~/.fzf.sh ]] && . "$HOME/.fzf.sh"
-[ -f /opt/miniconda3/etc/profile.d/conda.sh ] && source /opt/miniconda3/etc/profile.d/conda.sh
-
-# Created by `pipx` on 2022-02-16 18:49:08
-export PATH="$PATH:/home/carlos/.local/bin"
+[[ -f "$HOME/.bash_aliases" ]] && . "$HOME/.bash_aliases"
+[[ -f "$GITDIR/polyglot/polyglot.sh" ]] && . "$GITDIR/polyglot/polyglot.sh"
 
 # >>> juliaup initialize >>>
 
 # !! Contents within this block are managed by juliaup !!
 
-case ":$PATH:" in *:/home/carlos/.julia/juliaup/bin:*);; *)
-    export PATH=/home/carlos/.julia/juliaup/bin${PATH:+:${PATH}};;
+case ":$PATH:" in *:/home/carlos/.juliaup/bin:*);; *)
+    export PATH=/home/carlos/.juliaup/bin${PATH:+:${PATH}};;
 esac
 
 # <<< juliaup initialize <<<
+[ -f /opt/miniconda3/etc/profile.d/conda.sh ] && source /opt/miniconda3/etc/profile.d/conda.sh
+export PATH=$ANACONDA_INSTALL_DIR/bin:$PATH

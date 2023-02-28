@@ -1,12 +1,17 @@
-#!/bin/bash
-
+#
+# ~/.bash_profile
+#
+[[ -f ~/.bashrc ]] && . ~/.bashrc
 if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
-  exec startx
+	exec startx
 fi
 
-set -o vi
-export EDITOR=nvim
-export ZETTEL_DIR=/home/$USER/Dropbox
+# >>> juliaup initialize >>>
 
-[[ -f ~/.bash_prompt ]] && . ~/.bash_prompt
-[[ -f ~/.bash_aliases ]] && . ~/.bash_aliases
+# !! Contents within this block are managed by juliaup !!
+
+case ":$PATH:" in *:/home/carlos/.juliaup/bin:*);; *)
+    export PATH=/home/carlos/.juliaup/bin${PATH:+:${PATH}};;
+esac
+
+# <<< juliaup initialize <<<

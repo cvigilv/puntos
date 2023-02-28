@@ -44,3 +44,7 @@ function getPDB () {
 function getCIF () {
 	wget "https://files.rcsb.org/download/${1^^}.cif"
 }
+
+function tf () {
+	tmux a -t $(tmux ls | cut -d':' -f 1 | fzf --height 10)
+}
