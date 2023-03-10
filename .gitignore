@@ -27,3 +27,8 @@ tags
 *.so
 
 # End of https://www.toptal.com/developers/gitignore/api/vim
+
+.julia/environments/nvim-lspconfig/Manifest.toml
+.julia/environments/nvim-lspconfig/Project.toml
+.julia/environments/nvim-lspconfig/bin/*
+.julia/environments/nvim-lspconfig/packagecompiler/*
