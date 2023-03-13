@@ -5,7 +5,7 @@ super + Return
 
 # Pmenu
 super + d
-	/home/carlos/git/puntos/pmenu/launch.sh
+	/home/carlos/.local/bin/pmenu/launch.sh
 
 # Launcher
 super + shift + d
