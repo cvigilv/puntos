@@ -25,5 +25,6 @@ polybar cvv &
 nm-applet --indicator &
 nitrogen --restore &
 xsetroot -cursor_name left_ptr &
+setxkbmap -option ctrl:nocaps
 blueman-applet &
 insync &
