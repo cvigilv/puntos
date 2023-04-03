@@ -48,3 +48,7 @@ function getCIF () {
 function tf () {
 	tmux a -t $(tmux ls | cut -d':' -f 1 | fzf --height 10)
 }
+
+function pdf2png () {
+	pdftoppm -png "${1}" "${1%.*}"
+}

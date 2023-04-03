@@ -17,14 +17,22 @@ bspc config active_border_color   "#1c1c1c"
 
 # Rules
 bspc rule -a matplotlib state=floating
+bspc rule -a Spotify desktop=^8
+bspc rule -a discord desktop=^9
+bspc rule -a whatsapp-nativefier-d40211 desktop=^10
 
 # Autostart
-sxhkd &
-picom -CGb &
-polybar cvv &
-nm-applet --indicator &
-nitrogen --restore &
-xsetroot -cursor_name left_ptr &
+xsetroot -cursor_name left_ptr
 setxkbmap -option ctrl:nocaps
+
+polybar cvv &
+picom -CGb &
+nitrogen --restore &
+sxhkd &
+
+nm-applet --indicator &
 blueman-applet &
-insync &
+spotify &
+discord &
+whatsapp-nativefier &
+insync start
