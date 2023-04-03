@@ -29,8 +29,13 @@ export PATH=$PATH:$GITDIR/tools
 
 # !! Contents within this block are managed by juliaup !!
 
-case ":$PATH:" in *:/home/carlos/.juliaup/bin:*);; *)
-    export PATH=/home/carlos/.juliaup/bin${PATH:+:${PATH}};;
+case ":$PATH:" in
+    *:/home/carlos/.juliaup/bin:*)
+        ;;
+
+    *)
+        export PATH=/home/carlos/.juliaup/bin${PATH:+:${PATH}}
+        ;;
 esac
 
 # <<< juliaup initialize <<<
