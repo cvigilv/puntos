@@ -32,12 +32,4 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
 fi
 
 # Initialize programs
-spotify &
-picom -CGb &
-nitrogen --restore &
-blueman-applet &
-insync start &
-xsetroot -cursor_name left_ptr &
-setxkbmap -option "ctrl:nocaps" &
-sxhkd &
 exec bspwm
