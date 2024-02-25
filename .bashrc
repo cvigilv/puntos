@@ -22,6 +22,8 @@ export GITDIR=$HOME/git
 export ZETTELDIR=$HOME/zk
 export PATH=$PATH:$GITDIR/tools
 
+export VBOX_USB=usbfs
+
 [[ -f "$HOME/.bash_aliases" ]] && . "$HOME/.bash_aliases"
 [[ -f "$GITDIR/polyglot/polyglot.sh" ]] && . "$GITDIR/polyglot/polyglot.sh"
 if [[ -d "$GITDIR/secretos" ]]; then
