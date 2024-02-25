@@ -1,7 +1,7 @@
 # Applications
 # Terminal emulator
 super + Return
-	konsole
+	wezterm
 
 # Pmenu
 super + d
@@ -10,13 +10,13 @@ super + d
 # Launcher
 super + shift + d
 	rofi -modi drun -show drun -line-padding 4 \
-                -columns 2 -padding 50 -hide-scrollbar -terminal konsole \
+                -columns 2 -padding 50 -hide-scrollbar -terminal wezterm \
                 -show-icons -font "Unifont 12"
 
 # show open window
 super + ctrl + d
 	rofi -modi drun -show window -line-padding 4 \
-                -columns 2 -padding 50 -hide-scrollbar -terminal konsole \
+                -columns 2 -padding 50 -hide-scrollbar -terminal wezterm \
                 -show-icons -font "Unifont 12"
 
 # Relaunch
