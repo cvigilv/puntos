@@ -24,6 +24,11 @@ export PATH=$PATH:$GITDIR/tools
 
 [[ -f "$HOME/.bash_aliases" ]] && . "$HOME/.bash_aliases"
 [[ -f "$GITDIR/polyglot/polyglot.sh" ]] && . "$GITDIR/polyglot/polyglot.sh"
+if [[ -d "$GITDIR/secretos" ]]; then
+	for SECRETFILE in "$GITDIR"/secretos/*; do
+		source "$SECRETFILE"
+	done
+fi
 
 # >>> juliaup initialize >>>
 
