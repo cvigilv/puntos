@@ -27,13 +27,8 @@ xsetroot -cursor_name left_ptr
 setxkbmap -option ctrl:nocaps
 
 polybar cvv &
-picom -CGb &
-nitrogen --restore &
 sxhkd &
-
 nm-applet --indicator &
 blueman-applet &
 spotify &
-discord &
-whatsapp-nativefier &
 insync start
