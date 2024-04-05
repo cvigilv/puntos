@@ -22,6 +22,7 @@ bspc rule -a discord desktop=^9
 bspc rule -a whatsapp-nativefier-d40211 desktop=^10
 
 # Autostart
+xrandr --output DP-0 --primary --right-of DP-3 --output DP-3 --rotation left
 xsetroot -cursor_name left_ptr
 setxkbmap -option ctrl:nocaps
 
