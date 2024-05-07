@@ -31,24 +31,23 @@ alias :q='exit'
 alias pluto='julia -e "using Pluto; Pluto.run()"'
 alias grep='grep --colour=auto'
 alias tmux='tmux -2'
-alias ?='cht.sh'
 
 # functions / tools
-function tab () {
-	column -s, -t < "$1" | less -#2 -N -S
+function tab() {
+	column -s, -t <"$1" | less -#2 -N -S
 }
 
-function getPDB () {
-	wget "https://files.rcsb.org/download/${1^^}.pdb"
+function getPDB() {
+	wget "https://files.rcsb.org/download/${1}.pdb"
 }
-function getCIF () {
-	wget "https://files.rcsb.org/download/${1^^}.cif"
-}
-
-function tf () {
-	tmux a -t $(tmux ls | cut -d':' -f 1 | fzf --height 10)
+function getCIF() {
+	wget "https://files.rcsb.org/download/${1}.cif"
 }
 
-function pdf2png () {
+function tf() {
+	tmux a -t "$(tmux "ls" | cut -d':' -f 1 | fzf --height 10)"
+}
+
+function pdf2png() {
 	pdftoppm -png "${1}" "${1%.*}"
 }
