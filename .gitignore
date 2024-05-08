@@ -23,24 +23,13 @@ tags
 # Persistent undo
 [._]*.un~
 
+# End of https://www.toptal.com/developers/gitignore/api/vim
+
 # Julia precompiled binaries
 *.so
 
-# End of https://www.toptal.com/developers/gitignore/api/vim
+.julia/
+!.julia/environments/nvim-lspconfig
 
-.julia/environments/nvim-lspconfig/Manifest.toml
-.julia/environments/nvim-lspconfig/Project.toml
-.julia/environments/nvim-lspconfig/bin/*
-.julia/environments/nvim-lspconfig/packagecompiler/*
-.julia/artifacts/
-.julia/clones/
-.julia/compiled/
-.julia/environments/v1.10/
-.julia/juliaup/
-.julia/logs/
-.julia/packages/
-.julia/pluto_notebooks/
-.julia/registries/
-.julia/scratchspaces/
 
 .DS_Store

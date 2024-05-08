@@ -1,36 +1,3 @@
-! TokyoNight colorscheme
-xterm*foreground: #EDF0FC
-xterm*background: #1A1B26
-xterm*color0:     #15161E
-xterm*color1:     #F7768E
-xterm*color2:     #9ECE6A
-xterm*color3:     #E0AF68
-xterm*color4:     #7AA2F7
-xterm*color5:     #BB9AF7
-xterm*color6:     #7DCFFF
-xterm*color7:     #A9B1D6
-xterm*color8:     #414868
-xterm*color9:     #F7768E
-xterm*color10:    #9ECE6A
-xterm*color11:    #E0AF68
-xterm*color12:    #7AA2F7
-xterm*color13:    #BB9AF7
-xterm*color14:    #7DCFFF
-xterm*color15:    #C0CAF5
-
-! uxterm settings
-xterm*Title:               xterm
-xterm*BorderWidth:         10
-xterm*vt100.scaleHeight:   1.2
-xterm*faceName:            unifont:size=12
-xterm*ScrollBar:           false
-xterm*utf8:                2
-xterm*cursorBlink:         true
-xterm*ptyInitialErase:     true
-xterm*backarrowKeyIsErase: true
-xterm*forcePackedFont:     false
-xterm*forceBoxChars:       true
-
 ! pmenu settings
 pmenu.font          : unifont:size=12
 pmenu.background    : #1A1B26
