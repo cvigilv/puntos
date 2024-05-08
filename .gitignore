@@ -32,3 +32,4 @@ tags
 .julia/environments/nvim-lspconfig/Project.toml
 .julia/environments/nvim-lspconfig/bin/*
 .julia/environments/nvim-lspconfig/packagecompiler/*
+.DS_Store
