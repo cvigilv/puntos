@@ -3,7 +3,7 @@ local config = {}
 
 -- Colorscheme
 local user_colorscheme = wezterm.color.get_builtin_schemes()["Humanoid light (base16)"]
-user_colorscheme.background = "#fffdf9"
+user_colorscheme.background = "#F1EFEB"
 
 config.color_schemes = {
 	["user"] = user_colorscheme,
@@ -33,8 +33,8 @@ config.font_rules = {
 config.line_height = 1.1
 config.font_size = 15
 config.colors = {
-	cursor_bg = "#8AAAE5",
-	cursor_fg = "#FFFFFF",
+	cursor_bg = "#fbb149",
+	cursor_fg = "#fffdf9",
 }
 
 -- GUI
