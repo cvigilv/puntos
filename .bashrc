@@ -16,15 +16,16 @@ shopt -s checkwinsize
 complete -cf sudo
 
 # Environmental variables
-export SHELL=/bin/bash
 export EDITOR=nvim
 export GITDIR=$HOME/git/
 export ZETTELDIR=$HOME/zk/
-export PATH=$PATH:$GITDIR/tools
-
+export ORGDIR=$HOME/org/
+export PATH=$PATH:$GITDIR/caja-de-herramientas:$HOME/.cargo/bin:$HOME/git/puntos/.local/bin:$HOME/.local/share/bob/nvim-bin
 export VBOX_USB=usbfs
 
+[[ -f "$HOME/.git-completion.bash" ]] && . "$HOME/.git-completion.bash"
 [[ -f "$HOME/.bash_aliases" ]] && . "$HOME/.bash_aliases"
+[[ -f "$GITDIR/caja-de-herramientas" ]] && PATH="$PATH:$GITDIR/caja-de-herramientas"
 [[ -f "$GITDIR/polyglot/polyglot.sh" ]] && . "$GITDIR/polyglot/polyglot.sh"
 if [[ -d "$GITDIR/secretos" ]]; then
 	for SECRETFILE in "$GITDIR"/secretos/*; do
@@ -37,12 +38,17 @@ fi
 # !! Contents within this block are managed by juliaup !!
 
 case ":$PATH:" in
-*:/Users/carlosvigil/.juliaup/bin:*) ;;
+*:/Users/carlos/.juliaup/bin:*) ;;
 
 *)
-	export PATH=/Users/carlosvigil/.juliaup/bin${PATH:+:${PATH}}
+	export PATH=/Users/carlos/.juliaup/bin${PATH:+:${PATH}}
 	;;
 esac
 
 # <<< juliaup initialize <<<
-. "$HOME/.cargo/env"
+
+# Created by `pipx` on 2025-02-12 19:21:36
+export PATH="$PATH:/Users/carlos/git/puntos/.local/bin"
+
+# opencode
+export PATH=/Users/carlos/.opencode/bin:$PATH

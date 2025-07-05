@@ -1,48 +1,77 @@
 # MIT License. Copyright (c) 2021 Fredrik Ekre
-# Modifications:
-# 1. Removed the conditional for Linux/macOS as you're specifically targeting macOS.
-# 2. Fixed the syntax error by properly separating the target and its dependencies.
-# 3. Used `:=` for immediate assignment of variables.
-# 4. Used `$(JULIA)` instead of `${JULIA}` for consistency.
-# 5. Adjusted the `mktemp` command to work on macOS (using `$$` to escape the `$`).
-# 6. Ensured proper indentation and spacing throughout the Makefile.
-# 7. Added an `update`.
+#
+# This Makefile can be used to build a custom Julia system image for LanguageServer.jl to
+# use with neovims built in LSP support. An up-to date version of this Makefile can be found
+# at https://github.com/fredrikekre/.dotfiles/blob/master/.julia/environments/nvim-lspconfig/Makefile
+#
+# Usage instructions:
+#
+#   1. Update the neovim configuration to use a custom julia executable. If you use
+#      nvim-lspconfig (recommended) you can modify the setup call to the following:
+#
+#          require("lspconfig").julials.setup({
+#              on_new_config = function(new_config, _)
+#                  local julia = vim.fn.expand("~/.julia/environments/nvim-lspconfig/bin/julia")
+#                  if require("lspconfig").util.path.is_file(julia) then
+#                      new_config.cmd[1] = julia
+#                  end
+#              end,
+#              -- ...
+#          })
+#
+#   2. Place this Makefile in ~/.julia/environments/nvim-lspconfig (create the directory if
+#      it doesn't already exist).
+#
+#   3. Change directory to ~/.julia/environments/nvim-lspconfig and run `make`. This will
+#      start up neovim in a custom project with a julia process that recods compiler
+#      statements. Follow the instructions in the opened source file, and then exit neovim.
+#
+#   4. Upon exiting neovim PackageCompiler.jl will compile a custom system image which will
+#      automatically be used whenever you work on Julia projects in neovim.
+#
+# Update instructions:
+#
+#  To update the system image (e.g. when upgrading Julia or upgrading LanguageServer.jl or
+#  it's dependencies) run the following commands from the
+#  ~/.julia/environments/nvim-lspconfig directory:
+#
+#      julia --project=. -e 'using Pkg; Pkg.update()'
+#      make
 
-JULIA := $(shell which julia)
-JULIA_PROJECT =
-SRCDIR := $(shell dirname $(abspath $(firstword $(MAKEFILE_LIST))))
-SYSIMAGE := languageserver.dylib
+JULIA ?= $(shell which julia)
+JULIA_PROJECT=
+SRCDIR:=$(shell dirname $(abspath $(firstword $(MAKEFILE_LIST))))
+ifeq ($(shell uname -s),Linux)
+	SYSIMAGE=languageserver.so
+else
+	SYSIMAGE=languageserver.dylib
+endif
 
 default: $(SYSIMAGE)
 
-update:
-	$(JULIA) --project=@nvim-lspconfig -e 'using Pkg; Pkg.update()'
-	$(MAKE) clean
-	$(MAKE)
-
 $(SYSIMAGE): Manifest.toml packagecompiler/Manifest.toml packagecompiler/precompile_statements.jl
-	JULIA_LOAD_PATH=${PWD}:${PWD}/packagecompiler:@stdlib $(JULIA) -e 'using PackageCompiler; PackageCompiler.create_sysimage(:LanguageServer, sysimage_path="$(SYSIMAGE)", precompile_statements_file="packagecompiler/precompile_statements.jl")'
+	JULIA_LOAD_PATH=${PWD}:${PWD}/packagecompiler:@stdlib ${JULIA} -e 'using PackageCompiler; PackageCompiler.create_sysimage(:LanguageServer, sysimage_path="$(SYSIMAGE)", precompile_statements_file="packagecompiler/precompile_statements.jl")'
 
 Manifest.toml: Project.toml
-	JULIA_LOAD_PATH=${PWD}/Project.toml:@stdlib $(JULIA) -e 'using Pkg; Pkg.instantiate()'
+	JULIA_LOAD_PATH=${PWD}/Project.toml:@stdlib ${JULIA} -e 'using Pkg; Pkg.instantiate()'
 
 Project.toml:
-	JULIA_LOAD_PATH=${PWD}/Project.toml:@stdlib $(JULIA) -e 'using Pkg; Pkg.add("LanguageServer")'
+	JULIA_LOAD_PATH=${PWD}/Project.toml:@stdlib ${JULIA} -e 'using Pkg; Pkg.add("LanguageServer")'
 
 packagecompiler/Manifest.toml: packagecompiler/Project.toml
-	JULIA_LOAD_PATH=${PWD}/packagecompiler/Project.toml:@stdlib $(JULIA) -e 'using Pkg; Pkg.instantiate()'
+	JULIA_LOAD_PATH=${PWD}/packagecompiler/Project.toml:@stdlib ${JULIA} -e 'using Pkg; Pkg.instantiate()'
 
 packagecompiler/Project.toml:
 	mkdir -p packagecompiler
-	JULIA_LOAD_PATH=${PWD}/packagecompiler/Project.toml:@stdlib $(JULIA) -e 'using Pkg; Pkg.add("PackageCompiler")'
+	JULIA_LOAD_PATH=${PWD}/packagecompiler/Project.toml:@stdlib ${JULIA} -e 'using Pkg; Pkg.add("PackageCompiler")'
 
 packagecompiler/precompile_statements.jl: Manifest.toml bin/julia
-	TMPDIR=$$(mktemp -d) && \
+	TMPDIR=$(shell mktemp -d) && \
 	cd $${TMPDIR} && \
-	JULIA_LOAD_PATH=: $(JULIA) -e 'using Pkg; Pkg.generate("Example")' 2> /dev/null && \
+	JULIA_LOAD_PATH=: ${JULIA} -e 'using Pkg; Pkg.generate("Example")' 2> /dev/null && \
 	cd Example && \
-	JULIA_LOAD_PATH=$${PWD}:@stdlib $(JULIA) -e 'using Pkg; Pkg.add(["JSON", "fzf_jll", "Random", "Zlib_jll"])' 2> /dev/null && \
-	JULIA_LOAD_PATH=$${PWD}:@stdlib $(JULIA) -e 'using Pkg; Pkg.precompile()' 2> /dev/null && \
+	JULIA_LOAD_PATH=$${PWD}:@stdlib ${JULIA} -e 'using Pkg; Pkg.add(["JSON", "fzf_jll", "Random", "Zlib_jll"])' 2> /dev/null && \
+	JULIA_LOAD_PATH=$${PWD}:@stdlib ${JULIA} -e 'using Pkg; Pkg.precompile()' 2> /dev/null && \
 	echo "$$PACKAGE_CONTENT" > src/Example.jl && \
 	JULIA_TRACE_COMPILE=1 nvim src/Example.jl && \
 	rm -rf $${TMPDIR}
@@ -55,11 +84,12 @@ bin/julia:
 clean:
 	rm -rf $(SYSIMAGE) packagecompiler bin
 
-.PHONY: clean default update
+.PHONY: clean default
 
+export JULIA_SHIM
 define JULIA_SHIM
 #!/bin/bash
-JULIA=$(JULIA)
+JULIA=${JULIA}
 if [[ $${JULIA_TRACE_COMPILE} = "1" ]]; then
     exec $${JULIA} --trace-compile=${PWD}/packagecompiler/precompile_statements.jl "$$@"
 elif [[ -f ${PWD}/$(SYSIMAGE) ]]; then
@@ -68,8 +98,8 @@ else
     exec $${JULIA} "$$@"
 fi
 endef
-export JULIA_SHIM
 
+export PACKAGE_CONTENT
 define PACKAGE_CONTENT
 # This file is opened in neovim with a LanguageServer.jl process that records Julia
 # compilation statements for creating a custom sysimage.
@@ -92,10 +122,16 @@ define PACKAGE_CONTENT
 #
 # When you are finished, simply exit neovim and PackageCompiler.jl will use all the recorded
 # statements to create a custom sysimage. This sysimage will be used for the language server
-# process in the future, and should result in almost instant response.module Exampleimport JSON
+# process in the future, and should result in almost instant response.
+
+module Example
+
+import JSON
 import fzf_jll
 using Random
-using Zlib_jllfunction hello(who, notused)
+using Zlib_jll
+
+function hello(who, notused)
     println("hello", who)
     shuffle([1, 2, 3])
    shoffle([1, 2, 3])
@@ -121,4 +157,3 @@ end
 
 end # module
 endef
-export PACKAGE_CONTENT

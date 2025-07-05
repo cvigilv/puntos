@@ -1,18 +1,20 @@
 #!/bin/bash
 
 # exa
-alias ls='exa --group-directories-first'
-alias ll='exa -lh --git --group-directories-first'
-alias l.='exa -ad .* --group-directories-first'
-alias ll.='exa -lhad --git --group-directories-first .*'
+alias ls='eza --group-directories-first'
+alias ll='eza -lh --git --group-directories-first'
+alias l.='eza -ad .* --group-directories-first'
+alias ll.='eza -lhad --git --group-directories-first .*'
 
 # n/vim
 # alias nvim="env TERM=wezterm nvim"
 alias v='nvim'
 alias vi='nvim'
 alias vim='nvim'
-alias mini="NVIM_APPNAME=nvim_minimal nvim"
-alias esqueleto="NVIM_APPNAME=esqueleto_dev nvim"
+alias zc="cd $ORGDIR && nvim -c 'Org capture'; cd -"
+alias za="cd $ORGDIR && nvim -c 'Org agenda g'; cd -"
+alias zf="cd $ORGDIR && nvim -c 'Denote search'; cd -"
+alias zn="cd $ORGDIR && nvim -c 'Denote note'; cd -"
 
 # git
 alias gs='git status'
@@ -30,10 +32,13 @@ alias cc_scope="git log --oneline | cut -d' ' -f 2 | sed -n 's/.*(\([^()]*\)).*/
 # python
 alias activate='source $HOME/.venv/$(ls -1 $HOME/.venv | fzf --height 1 --prompt "Select Python venv :: ")/bin/activate'
 
+# julia
+alias runic="julia --project=@runic -e 'using Runic; exit(Runic.main(ARGS))' --"
+alias pluto='julia --project=@pluto -e "using Pluto; Pluto.run()"'
+
 # misc
 alias ..='cd ..'
 alias :q='exit'
-alias pluto='julia -e "using Pluto; Pluto.run()"'
 alias grep='grep --colour=auto'
 alias tmux='tmux -2'
 
