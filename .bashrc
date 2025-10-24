@@ -51,4 +51,6 @@ esac
 export PATH="$PATH:/Users/carlos/git/puntos/.local/bin"
 
 # opencode
-export PATH=/Users/carlos/.opencode/bin:$PATH
+export PATH=~/carlos/.opencode/bin:$PATH
+export PATH=~/.npm-packages/bin:$PATH
+export NODE_PATH=~/.npm-packages/lib/node_modules

@@ -11,10 +11,9 @@ alias ll.='eza -lhad --git --group-directories-first .*'
 alias v='nvim'
 alias vi='nvim'
 alias vim='nvim'
-alias zc="cd $ORGDIR && nvim -c 'Org capture'; cd -"
-alias za="cd $ORGDIR && nvim -c 'Org agenda g'; cd -"
-alias zf="cd $ORGDIR && nvim -c 'Denote search'; cd -"
-alias zn="cd $ORGDIR && nvim -c 'Denote note'; cd -"
+alias za="cd $ORGDIR && nvim $ORGDIR/.org/projects.org -c 'Org agenda g'; cd -"
+alias zf="cd $ORGDIR && nvim -c 'Telescope denote search prompt_prefix=[Denote\ search]\  prompt_title= previewer=false'; cd -"
+alias zn="cd $ORGDIR && nvim -c 'Denote'; cd -"
 
 # git
 alias gs='git status'
