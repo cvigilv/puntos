@@ -1,0 +1,7 @@
+* Carlos Vigil-Vásquez dotfiles
+
+This are a collection of my dotfiles, currently used in my 2024 Macbook Air.
+
+I have things that are mine, others that are stolen, others that are forked. Please feel free to
+copy whatever is useful from here.
+
